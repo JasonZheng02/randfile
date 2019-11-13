@@ -24,10 +24,10 @@ int main(){
 	printf("Generating random numbers\n");
 	for (i = 0; i < 10; i++){
 		arr[i] = rand_num();
-		printf("random %d: %d\n", i, arr[i]);
+		printf("\trandom %d: %d\n", i, arr[i]);
 	}
 	
-	printf("Writing numbers to file\n");
+	printf("\nWriting numbers to file\n");
 	fd = open("file", O_RDWR | O_CREAT, 0666);
 	write(fd, arr, sizeof(arr));
 	close(fd);
@@ -37,8 +37,8 @@ int main(){
 	read(fd2, arr2, sizeof(arr2));
 	close(fd2);
 	
-	printf("Verification that written values were the same\n");
+	printf("\nVerification that written values were the same\n");
 	for (i = 0; i < 10; i++){
 		printf("random %d: %d\n", i, arr2[i]);
-	}
+	}	
 }
